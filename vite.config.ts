@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import viteReact from "@vitejs/plugin-react";
+import svgr from "vite-plugin-svgr";
 
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 import { resolve } from "node:path";
@@ -8,7 +9,8 @@ import { resolve } from "node:path";
 export default defineConfig({
   plugins: [
     TanStackRouterVite({ autoCodeSplitting: true }),
-    viteReact()
+    viteReact(),
+    svgr({ include: "*.svg" }),
   ],
   resolve: {
     alias: {
