@@ -1,5 +1,6 @@
-import { createFileRoute, Navigate } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import MainPage from "../pages/Main"
 
 export const Route = createFileRoute("/")({
-  component: () => <Navigate to="/login" />
+  component: () => <MainPage />
 });
