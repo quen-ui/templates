@@ -24,6 +24,7 @@
     "@tanstack/router-plugin": "^1.121.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "recharts": "^3.6.0",
     "styled-components": "^6.1.19"
   },
   "devDependencies": {
