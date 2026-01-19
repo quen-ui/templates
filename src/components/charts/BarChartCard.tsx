@@ -24,6 +24,7 @@ const BarChartCard = ({
 }: IBarChartCardProps) => {
   return (
     <Card
+      shadow
       title={title}
       style={{ maxWidth: "100%" }}
       className={className}
@@ -41,7 +42,6 @@ const BarChartCard = ({
       <BarChart
         style={{
           width: "100%",
-          maxWidth: "700px",
           maxHeight: "70vh",
           aspectRatio: 1.618
         }}

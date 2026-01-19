@@ -9,6 +9,7 @@ import {
   Divider
 } from "@quen-ui/components";
 import { IconCheck, IconSettings, IconStar } from "@tabler/icons-react";
+import { Link } from "@tanstack/react-router";
 import {
   MainPageStyled,
   MainPageFooterStyled,
@@ -96,7 +97,7 @@ const MainPage = () => {
             <Flex gap="l" justify="end">
               <Flex direction="column">
                 <Title size="xs">Templates</Title>
-                <Button as="a" size="s" view="link">Dashboard</Button>
+                <Button as={Link} size="s" view="link" to="/dashboard">Dashboard</Button>
               </Flex>
               <Flex direction="column">
                 <Title size="xs">Resources</Title>

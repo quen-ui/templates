@@ -33,6 +33,7 @@ const LineChartCard = ({
 }: ILineChartCardProps) => {
   return (
     <Card
+      shadow
       title={title}
       style={{ maxWidth: "100%" }}
       className={className}
