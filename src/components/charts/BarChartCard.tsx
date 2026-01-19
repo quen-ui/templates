@@ -1,16 +1,8 @@
-import { type CSSProperties, type ReactNode } from "react";
-import {
-  LineChart as LineChartComponent,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend
-} from "recharts";
-import { Card, Select, type ISelectDefaultItem } from "@quen-ui/components";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
+import { Card, type ISelectDefaultItem, Select } from "@quen-ui/components";
+import type { CSSProperties, ReactNode } from "react";
 
-interface ILineChartCardProps {
+interface IBarChartCardProps {
   data: Array<Record<string, number | string> & { name: string }>;
   color?: string[] | string;
   className?: string;
@@ -21,16 +13,15 @@ interface ILineChartCardProps {
   onChangeSelect?: (value: any) => void;
 }
 
-const LineChartCard = ({
+const BarChartCard = ({
   data,
   color,
-  className,
-  style,
   title,
   classNameChart,
+  className,
   itemsSelect,
   onChangeSelect
-}: ILineChartCardProps) => {
+}: IBarChartCardProps) => {
   return (
     <Card
       title={title}
@@ -47,8 +38,13 @@ const LineChartCard = ({
           />
         ) : undefined
       }>
-      <LineChartComponent
-        style={style}
+      <BarChart
+        style={{
+          width: "100%",
+          maxWidth: "700px",
+          maxHeight: "70vh",
+          aspectRatio: 1.618
+        }}
         className={classNameChart}
         responsive
         data={data}
@@ -61,24 +57,18 @@ const LineChartCard = ({
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis width="auto" />
-        <Tooltip />
-        <Legend />
         {Object.keys(data?.[0] ?? {})
           .filter((key) => key !== "name")
           .map((key, index) => (
-            <Line
+            <Bar
               key={key}
-              type="monotone"
               dataKey={key}
-              stroke={
-                Array.isArray(color) ? (color?.[index] ?? color[0]) : color
-              }
-              activeDot={{ r: 8 }}
+              fill={Array.isArray(color) ? (color?.[index] ?? color[0]) : color}
             />
           ))}
-      </LineChartComponent>
+      </BarChart>
     </Card>
   );
 };
 
-export default LineChartCard;
+export default BarChartCard;
