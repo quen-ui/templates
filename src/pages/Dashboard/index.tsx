@@ -3,9 +3,7 @@ import {
   Card,
   Flex,
   Tag,
-  Avatar,
   Button,
-  Badge,
   Tabs
 } from "@quen-ui/components";
 import { useTheme } from "@quen-ui/theme";
@@ -16,118 +14,20 @@ import {
   IconUserFilled,
   IconTrendingDown,
   IconPlus,
-  IconStar,
-  IconBell
+  IconStar
 } from "@tabler/icons-react";
 import {
-  DashboardPageStyled,
   DashboardContentContainerStyled,
-  DashboardHeaderStyled,
   BarChartCardStyled,
   LineChartCardStyled, CardTableStyled
 } from "./styles";
-import SearchHeader from "@/components/SearchHeader";
 import { Table } from "@/components/Table";
-
-const overviewDataYear = [
-  {
-    name: "Jan",
-    users: 20002,
-    signups: 5670
-  },
-  {
-    name: "Feb",
-    users: 56780,
-    signups: 7893
-  },
-  {
-    name: "Mar",
-    users: 35679,
-    signups: 18910
-  },
-  {
-    name: "Apr",
-    users: 78001,
-    signups: 23674
-  },
-  {
-    name: "May",
-    users: 86400,
-    signups: 30789
-  },
-  { name: "Jun", users: 87400, signups: 25436 },
-  { name: "Jul", users: 98456, signups: 56978 },
-  { name: "Aug", users: 8456, signups: 6787 },
-  { name: "Sep", users: 84561, signups: 8674 },
-  { name: "Oct", users: 152000, signups: 98761 },
-  { name: "Nov", users: 78463, signups: 14578 },
-  { name: "Dec", users: 91547, signups: 5236 }
-];
-
-const data = [
-  {
-    name: "0 - 10 minutes",
-    pageviews: 8541
-  },
-  {
-    name: "10 - 20 minutes",
-    pageviews: 25479
-  },
-  {
-    name: "20 - 30 minutes",
-    pageviews: 49620
-  }
-];
-
-const users = [
-  {
-    "name": "Elise Moen",
-    "email": "Paul.Bosco43@yahoo.com",
-    "signupDate": "Dec 23 2025",
-    "role": "Consultant"
-  },
-  {
-    "name": "Janice Erdman",
-    "email": "Jade.Murray@hotmail.com",
-    "signupDate": "Oct 09 2025",
-    "role": "Executive"
-  },
-  {
-    "name": "Easton Kutch DVM",
-    "email": "Savanna_Hills38@hotmail.com",
-    "signupDate": "Jul 19 2025",
-    "role": "Designer"
-  },
-  {
-    "name": "Tod Hills",
-    "email": "Wilhelmine.Ryan@yahoo.com",
-    "signupDate": "Apr 13 2025",
-    "role": "Director"
-  },
-  {
-    "name": "Kaya McDermott",
-    "email": "Era.OKeefe71@yahoo.com",
-    "signupDate": "Jul 04 2025",
-    "role": "Developer"
-  }
-];
+import { overviewDataYear, users, pageViewsData} from "./data";
 
 const Dashboard = () => {
   const theme = useTheme();
   return (
-    <DashboardPageStyled>
-      <DashboardHeaderStyled height="64px">
-        <Title size="m">Dashboard</Title>
-        <Flex gap="m" align="center">
-          <SearchHeader />
-          <Badge text={2} size="xs">
-            <Button view="icon" size="s">
-              <IconBell width={24} height={24} color={theme.colors.violet[9]} />
-            </Button>
-          </Badge>
-          <Avatar name="Martin Jonson" />
-        </Flex>
-      </DashboardHeaderStyled>
+    <>
       <DashboardContentContainerStyled direction="column" gap="l">
         <Flex wrap="wrap" justify="space-between" align="center">
           <Flex>
@@ -209,7 +109,7 @@ const Dashboard = () => {
             color={[theme.colors.violet[9], theme.colors.green[9]]}
           />
           <BarChartCardStyled
-            data={data}
+            data={pageViewsData}
             title="Live pageviews"
             color={theme.colors.grayViolet[9]}
             itemsSelect={[
@@ -231,7 +131,7 @@ const Dashboard = () => {
           />
         </CardTableStyled>
       </DashboardContentContainerStyled>
-    </DashboardPageStyled>
+    </>
   );
 };
 

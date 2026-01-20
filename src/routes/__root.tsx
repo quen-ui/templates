@@ -1,11 +1,25 @@
-import { Outlet, createRootRoute, useLocation } from "@tanstack/react-router";
+import {
+  Outlet,
+  useLocation,
+  createRootRoute
+} from "@tanstack/react-router";
 import { QuenUIProvider, QuenUILightTheme } from "@quen-ui/theme";
-import { NotificationInstance, Layout, Image, Flex, Title } from "@quen-ui/components";
+import {
+  NotificationInstance,
+  Layout,
+  Image,
+  Flex,
+  Title
+} from "@quen-ui/components";
 import { SIDEBAR_MENU_ITEMS } from "@/constants";
 import LogoImg from "../assets/Logo.png";
-import { LayoutSidebarStyled } from "@/components/LayoutSidebar"
+import { LayoutSidebarStyled } from "@/components/LayoutSidebar";
 import Footer from "@/components/Footer";
-import { LayoutContentStyled } from "@/components/LayoutContent";
+import {
+  LayoutContentStyled,
+  PageWrapperStyled
+} from "@/components/LayoutContent";
+import PageHeader from "@/components/PageHeader";
 
 export const Route = createRootRoute({
   component: () => {
@@ -23,7 +37,14 @@ export const Route = createRootRoute({
             </LayoutSidebarStyled>
           )}
           <LayoutContentStyled>
-            <Outlet />
+            {["/login", "/signup", "/"].includes(location.pathname) ? (
+              <Outlet />
+            ) : (
+              <PageWrapperStyled>
+                <PageHeader />
+                <Outlet />
+              </PageWrapperStyled>
+            )}
           </LayoutContentStyled>
           {!["/login", "/signup", "/"].includes(location.pathname) && (
             <Layout.Footer>
