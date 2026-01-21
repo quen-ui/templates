@@ -10,7 +10,7 @@ const PageHeader = () => {
   const location = useLocation();
   const matches = useMatches();
   return (
-    <PagedHeaderStyled height="64px">
+    <PagedHeaderStyled>
       <Title size="m">
         {matches
           .find((m) => m.pathname === location.pathname)

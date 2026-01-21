@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import type { IMenuDefaultItem } from "@quen-ui/components";
 import {
   IconHome,
@@ -11,22 +12,30 @@ export const SIDEBAR_MENU_ITEMS: IMenuDefaultItem[] = [
   {
     label: "Dashboard",
     key: "dashboard",
-    leftContent: <IconHome />
+    leftContent: <IconHome />,
+    as: Link,
+    to: "/dashboard"
   },
   {
     label: "Users",
     key: "users",
-    leftContent: <IconUsers />
+    leftContent: <IconUsers />,
+    as: Link,
+    to: "/users"
   },
   {
     label: "Settings",
     key: "settings",
-    leftContent: <IconSettings />
+    leftContent: <IconSettings />,
+    as: Link,
+    to: "/settings"
   },
   {
     label: "Support",
     key: "support",
-    leftContent: <IconLayoutBottombarInactive />
+    leftContent: <IconLayoutBottombarInactive />,
+    as: Link,
+    to: "/support"
   },
   {
     label: "Logout",

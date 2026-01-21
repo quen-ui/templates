@@ -36,7 +36,7 @@ const SearchHeader = ({ defaultValue, onChange }: ISearchHeaderProps) => {
     <Button
       view="secondary"
       size="m"
-      leftContent={<IconSearch />}
+      leftContent={<IconSearch style={{ color: "currentColor" }} />}
       onClick={() => setShow(true)}>
       Search
     </Button>

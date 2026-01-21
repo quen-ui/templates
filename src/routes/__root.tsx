@@ -1,9 +1,9 @@
+import { Outlet, useLocation, createRootRoute } from "@tanstack/react-router";
 import {
-  Outlet,
-  useLocation,
-  createRootRoute
-} from "@tanstack/react-router";
-import { QuenUIProvider, QuenUILightTheme } from "@quen-ui/theme";
+  QuenUIProvider,
+  QuenUILightTheme,
+  QuenUIDarkTheme
+} from "@quen-ui/theme";
 import {
   NotificationInstance,
   Layout,
@@ -11,23 +11,26 @@ import {
   Flex,
   Title
 } from "@quen-ui/components";
-import { SIDEBAR_MENU_ITEMS } from "@/constants";
+import { LIGHT_THEME_NAME, SIDEBAR_MENU_ITEMS, THEME_KEY } from "@/constants";
 import LogoImg from "../assets/Logo.png";
 import { LayoutSidebarStyled } from "@/components/LayoutSidebar";
 import Footer from "@/components/Footer";
 import {
   LayoutContentStyled,
-  PageWrapperStyled
+  PageWrapperStyled,
+  LayoutStyled
 } from "@/components/LayoutContent";
 import PageHeader from "@/components/PageHeader";
 
 export const Route = createRootRoute({
   component: () => {
     const location = useLocation();
+    const theme = localStorage.getItem(THEME_KEY);
     return (
-      <QuenUIProvider theme={QuenUILightTheme}>
+      <QuenUIProvider
+        theme={theme === LIGHT_THEME_NAME ? QuenUILightTheme : QuenUIDarkTheme}>
         <NotificationInstance />
-        <Layout>
+        <LayoutStyled>
           {!["/login", "/signup", "/"].includes(location.pathname) && (
             <LayoutSidebarStyled menuItems={SIDEBAR_MENU_ITEMS}>
               <Flex gap="s" justify="center" align="center">
@@ -36,12 +39,12 @@ export const Route = createRootRoute({
               </Flex>
             </LayoutSidebarStyled>
           )}
+          <PageHeader />
           <LayoutContentStyled>
             {["/login", "/signup", "/"].includes(location.pathname) ? (
               <Outlet />
             ) : (
               <PageWrapperStyled>
-                <PageHeader />
                 <Outlet />
               </PageWrapperStyled>
             )}
@@ -51,7 +54,7 @@ export const Route = createRootRoute({
               <Footer />
             </Layout.Footer>
           )}
-        </Layout>
+        </LayoutStyled>
       </QuenUIProvider>
     );
   }
