@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Flex, Tabs } from "@quen-ui/components";
 import GeneralTab from "./GeneralTab";
 import SecurityTab from "./SecurityTab";
+import BillingTab from "./BillingTab";
 
 const Settings = () => {
   const [activeTab, setActiveTab] = useState("general");
@@ -21,7 +22,7 @@ const Settings = () => {
           <SecurityTab />
         </Tabs.TabPanel>
         <Tabs.TabPanel value="notifications">Notifications</Tabs.TabPanel>
-        <Tabs.TabPanel value="billing">Billing</Tabs.TabPanel>
+        <Tabs.TabPanel value="billing"><BillingTab /></Tabs.TabPanel>
       </Tabs>
     </Flex>
   );

@@ -13,10 +13,10 @@
     "check": "prettier --write . && eslint --fix"
   },
   "dependencies": {
-    "@quen-ui/components": "^1.0.1",
-    "@quen-ui/helpers": "^1.0.1",
-    "@quen-ui/hooks": "^1.0.1",
-    "@quen-ui/theme": "^1.0.1",
+    "@quen-ui/components": "^1.1.0",
+    "@quen-ui/helpers": "^1.1.0",
+    "@quen-ui/hooks": "^1.1.0",
+    "@quen-ui/theme": "^1.1.0",
     "@tabler/icons-react": "^3.36.0",
     "@tanstack/react-devtools": "^0.2.2",
     "@tanstack/react-router": "^1.130.2",

@@ -1,4 +1,5 @@
-import type { ISelectDefaultItem } from "@quen-ui/components";
+import { type ISelectDefaultItem, Tag, Button } from "@quen-ui/components";
+import type { IColumnTable } from "@/components/Table";
 
 export const languageItems: ISelectDefaultItem[] = [
   {
@@ -101,20 +102,90 @@ export const loginHistory = [
     device: "Android",
     ip: "127.0.0.1",
     time: "Today - 14:21",
-    status: "actual",
+    status: "actual"
   },
   {
     browser: "Chrome",
     device: "Windows",
     ip: "127.0.0.1",
     time: "Yesterday - 20:05",
-    status: "closed",
+    status: "closed"
   },
   {
     browser: "Firefox",
     device: "Windows",
     ip: "127.0.0.1",
     time: "Jun 20.2026 - 04:51",
-    status: "actual",
+    status: "actual"
+  }
+];
+
+export const columnsInvoices: IColumnTable[] = [
+  {
+    title: "Invoice",
+    dataIndex: "invoice"
+  },
+  {
+    title: "Date",
+    dataIndex: "date"
+  },
+  {
+    title: "Amount",
+    dataIndex: "amount"
+  },
+  {
+    title: "Status",
+    dataIndex: "status"
+  },
+  {
+    title: "Plan",
+    dataIndex: "plan"
+  },
+  {
+    title: "",
+    dataIndex: "download"
+  }
+];
+
+export const dataInvoices = [
+  {
+    invoice: "#784Ad41",
+    date: "Dec 1, 2025",
+    amount: "$24",
+    status: <Tag color="green" size="s">Paid</Tag>,
+    plan: "Pro",
+    download: <Button view="link" size="s">Download</Button>,
+  },
+  {
+    invoice: "#A712d3D",
+    date: "Nov 1, 2025",
+    amount: "$12",
+    status: <Tag color="red" size="s">Unpaid</Tag>,
+    plan: "Basic",
+    download: <Button view="link" size="s">Download</Button>,
+  },
+  {
+    invoice: "#9718DD74f",
+    date: "Oct 1, 2025",
+    amount: "$0",
+    status: <Tag color="green" size="s">Paid</Tag>,
+    plan: "Free",
+    download: <Button view="link" size="s">Download</Button>,
+  },
+  {
+    invoice: "#1320ERT",
+    date: "Sep 1, 2025",
+    amount: "$24",
+    status: <Tag color="green" size="s">Paid</Tag>,
+    plan: "Pro",
+    download: <Button view="link" size="s">Download</Button>,
+  },
+  {
+    invoice: "#9633AS45",
+    date: "Aug 1, 2025",
+    amount: "$12",
+    status: <Tag color="green" size="s">Paid</Tag>,
+    plan: "Basic",
+    download: <Button view="link" size="s">Download</Button>,
   }
 ]
