@@ -3,7 +3,6 @@ import {
   Flex,
   Card,
   Button,
-  message,
   Progress,
   Form,
   Text,
@@ -27,6 +26,7 @@ import { TextFieldStyled } from "@/pages/Settings/styles";
 import { evaluatePasswordStrength } from "@/utils";
 import TwoFASettingModal from "@/components/TwoFASettingModal";
 import { loginHistory } from "./constants";
+import type {IMessageInstance} from "@quen-ui/components/dist/message/types";
 
 interface IPasswordData {
   currentPassword: string;
@@ -34,14 +34,17 @@ interface IPasswordData {
   confirmPassword: string;
 }
 
-const SecurityTab = () => {
+interface ISecurityTabProps {
+  messageInstance: IMessageInstance;
+}
+
+const SecurityTab = ({ messageInstance }: ISecurityTabProps) => {
   const refButtonQuestionPassword = useRef<HTMLButtonElement>(null);
   const [openDropdownPassword, setOpenDropdownPassword] =
     useState<boolean>(false);
   const [status2FA, setStatus2FA] = useState("disable");
   const theme = useTheme();
   const formPassword = Form.useForm();
-  const [messageInstance, MessageProvider] = message.useMessage();
   const newPassword = Form.useWatch("newPassword", formPassword);
   const [backupCodes, setBackupCodes] = useState<string[]>([]);
   const [generateBackupCodes, setGenerateBackupCodes] =
@@ -123,7 +126,6 @@ const SecurityTab = () => {
 
   return (
     <>
-      {MessageProvider}
       <Flex direction="column" gap="l">
         <Card
           style={{ width: "100%" }}

@@ -6,8 +6,8 @@ import {
   Button,
   Select,
   RadioButton,
-  message
 } from "@quen-ui/components";
+import type { IMessageInstance } from "@quen-ui/components/dist/message/types";
 import { useTheme } from "@quen-ui/theme";
 import {
   IconUserFilled,
@@ -25,9 +25,12 @@ import {
 import { THEME_KEY, LIGHT_THEME_NAME } from "@/constants";
 import InviteMemberModal from "./InviteMemberModal";
 
-const GeneralTab = () => {
+interface IGeneralTabProps {
+  messageInstance: IMessageInstance;
+}
+
+const GeneralTab = ({ messageInstance }: IGeneralTabProps) => {
   const theme = useTheme();
-  const [messageInstance, MessageProvider] = message.useMessage();
   const [openInviteModal, setOpenInviteModal] = useState(false);
   const [themeName, setThemeName] = useState(
     localStorage.getItem(THEME_KEY) || "light"
@@ -44,7 +47,6 @@ const GeneralTab = () => {
 
   return (
     <>
-      {MessageProvider}
       <Flex direction="column" gap="l">
         <Card
           style={{ width: "100%" }}

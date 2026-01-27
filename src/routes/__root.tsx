@@ -1,4 +1,9 @@
-import { Outlet, useLocation, createRootRoute } from "@tanstack/react-router";
+import {
+  Outlet,
+  useLocation,
+  createRootRoute,
+  Link
+} from "@tanstack/react-router";
 import {
   QuenUIProvider,
   QuenUILightTheme,
@@ -14,7 +19,7 @@ import {
 import { LIGHT_THEME_NAME, SIDEBAR_MENU_ITEMS, THEME_KEY } from "@/constants";
 import LogoImg from "../assets/Logo.png";
 import { LayoutSidebarStyled } from "@/components/LayoutSidebar";
-import Footer from "@/components/Footer";
+import { Footer } from "@/components/Footer";
 import {
   LayoutContentStyled,
   PageWrapperStyled,
@@ -33,14 +38,18 @@ export const Route = createRootRoute({
         <LayoutStyled>
           {!["/login", "/signup", "/"].includes(location.pathname) && (
             <LayoutSidebarStyled menuItems={SIDEBAR_MENU_ITEMS}>
-              <Flex gap="s" justify="center" align="center">
-                <Image src={LogoImg} width={48} height={48} />
-                <Title size="s">QuenUI</Title>
-              </Flex>
+              <Link to="/">
+                <Flex gap="s" justify="center" align="center">
+                  <Image src={LogoImg} width={48} height={48} />
+                  <Title size="s">QuenUI</Title>
+                </Flex>
+              </Link>
             </LayoutSidebarStyled>
           )}
-          <PageHeader />
-          <LayoutContentStyled>
+          {!["/login", "/signup", "/"].includes(location.pathname) && (
+            <PageHeader />
+          )}
+          <LayoutContentStyled isFooter={!["/login", "/signup", "/"].includes(location.pathname)}>
             {["/login", "/signup", "/"].includes(location.pathname) ? (
               <Outlet />
             ) : (

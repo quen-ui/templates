@@ -2,10 +2,10 @@ import { Button, Text } from "@quen-ui/components";
 import { FooterWrapper } from "./styles";
 import Logo from "../../assets/Logo.png";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <FooterWrapper align="center" justify="center" gap="s">
-      <Text>© 2025 QuenUI</Text>
+      <Text>© 2026 QuenUI</Text>
       <Button
         view="icon"
         as="a"
@@ -28,5 +28,3 @@ const Footer = () => {
     </FooterWrapper>
   );
 };
-
-export default Footer;

@@ -97,6 +97,7 @@ const MainPage = () => {
             <Flex gap="l" justify="end">
               <Flex direction="column">
                 <Title size="xs">Templates</Title>
+                <Button as={Link} size="s" view="link" to="/login">Login</Button>
                 <Button as={Link} size="s" view="link" to="/dashboard">Dashboard</Button>
               </Flex>
               <Flex direction="column">

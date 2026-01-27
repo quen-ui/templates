@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import {
   Flex,
   Title,
@@ -13,6 +13,7 @@ import Logo from "../../LogoWhite.png";
 import { LoginPageStyled, LogoContainer, LoginFormStyled } from "./styles";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [blurEmail, setBlurEmail] = useState(false);
   const [blurPassword, setBlurPassword] = useState(false);
@@ -36,6 +37,7 @@ const Login = () => {
           title: "Login successful"
         });
         setLoading(false);
+        navigate({ href: "/dashboard "});
       }, 1000);
     } else {
       setBlurEmail(true);
